@@ -64,6 +64,11 @@ module Fastr
     # 
     # @return [Hash]
     attr_accessor :post_params
+
+    # POST body.
+    #
+    # @return [String]
+    attr_accessor :post_body
     
     include Fastr::Template
     include Fastr::Deferrable
