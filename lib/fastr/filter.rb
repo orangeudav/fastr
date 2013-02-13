@@ -17,6 +17,7 @@ module Fastr
       new_response = nil
       get_filters_for_action(klass, :before, action).each do |filter|
         new_response = execute_filter(filter, controller)
+        return new_response unless new_response.nil?
       end
       new_response
     end
@@ -32,6 +33,7 @@ module Fastr
       new_response = response
       get_filters_for_action(klass, :after, action).each do |filter|
         new_response = execute_filter(filter, controller, new_response)
+        return new_response unless new_response.nil?
       end
       new_response
     end

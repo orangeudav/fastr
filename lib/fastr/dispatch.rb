@@ -63,7 +63,7 @@ module Fastr
       end
 
       # Run after filters
-      response = Fastr::Filter.run_after_filters(obj, klass_inst, action, response)
+      response = Fastr::Filter.run_after_filters(obj, klass_inst, action, response) || response
 
       code, hdrs, body = *response
 
